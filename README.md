@@ -1,17 +1,20 @@
-# OpenAI Gym wrapper for the DeepMind Control Suite.
-A lightweight wrapper around the DeepMind Control Suite that provides the standard OpenAI Gym interface. The wrapper allows to specify the following:
-* Reliable random seed initialization that will ensure deterministic behaviour.
-* Setting ```from_pixels=True``` converts proprioceptive observations into image-based. In additional, you can choose the image dimensions, by setting ```height``` and ```width```.
-* Action space normalization bound each action's coordinate into the ```[-1, 1]``` range.
-* Setting ```frame_skip``` argument lets to perform action repeat.
+# OpenAI Gym wrapper for the DeepMind Control Suite (Updated)
 
+A lightweight wrapper around the DeepMind Control Suite that provides the standard OpenAI Gym interface. This updated version is compatible with gym>0.23.0 and has been modified to address incompatibility issues with newer gym versions. The wrapper allows you to:
 
-### Instalation
+* Ensure deterministic behavior with reliable random seed initialization.
+* Convert proprioceptive observations into image-based observations by setting `from_pixels=True`. Additionally, you can choose the image dimensions by setting `height` and `width`.
+* Normalize the action space to bound each action's coordinate within the `[-1, 1]` range.
+* Perform action repeat by setting the `frame_skip` argument.
+
+## Installation
+
+```bash
+pip install git+git://github.com/ItsBean/dmc2gym.git
 ```
-pip install git+git://github.com/denisyarats/dmc2gym.git
-```
 
-### Usage
+## Usage
+
 ```python
 import dmc2gym
 
@@ -23,3 +26,6 @@ while not done:
   action = env.action_space.sample()
   obs, reward, done, info = env.step(action)
 ```
+
+
+This updated introduction reflects the changes to the repository, including compatibility with the new gym version and the new GitHub repository owner.
